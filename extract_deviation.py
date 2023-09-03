@@ -6,7 +6,7 @@ df_ideal = read.read_data_to_ideal_df()
 df_test = read.read_data_to_test_df()
 
 def define_deviation():
-    print('Display deviation')
+    print('Display deviation for best fit function f24')
     # Sort the df_test by the 'x' column
     sorted_test_df = df_test.sort_values(by='x')
     #export x and y24 from df_ideal
@@ -22,3 +22,16 @@ def define_deviation():
     #Calculate as new column 'deviation'= y-y24
     result_df['deviation'] = result_df['y'] - result_df['y24']
     print(result_df)
+
+def define_sum_deviation_for_function(function_y_id):
+    sorted_test_df = df_test.sort_values(by='x')
+    #export x and y24 from df_ideal
+    df_ideal_by_id = pd.DataFrame(zip(df_ideal['x'], df_ideal[function_y_id]))
+
+    #Merge the 'ideal' and 'test' DataFrames based on the common 'x' values
+    df_result = pd.merge(sorted_test_df, df_ideal, on='x')
+
+    #Calculate total deviation for given function
+    df_result['deviation'] = df_result['y'] - df_result[function_y_id]
+    return df_result['deviation'].sum()
+
