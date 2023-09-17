@@ -11,9 +11,9 @@ df_train = read.read_data_to_train_df()
 df_ideal = read.read_data_to_ideal_df()
 df_test = read.read_data_to_test_df()
 
-compare.define_optimal_from_ideal_to_train()
+compare.define_optimal_from_ideal_to_train(df_train, df_ideal, df_test)
 
-deviation.define_deviation()
+deviation.define_deviation(df_ideal, df_test)
 
 graphs.show_graph()
 

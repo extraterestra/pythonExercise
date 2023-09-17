@@ -1,16 +1,10 @@
 import pandas as pd
-import read_data as read
 
-df_train = read.read_data_to_train_df()
-df_ideal = read.read_data_to_ideal_df()
-df_test = read.read_data_to_test_df()
-
-def define_deviation():
+def define_deviation(df_ideal, df_test):
     print('Display deviation for best fit function f24')
     # Sort the df_test by the 'x' column
     sorted_test_df = df_test.sort_values(by='x')
-    #export x and y24 from df_ideal
-    df2_ideal = pd.DataFrame(zip(df_ideal['x'], df_ideal['y24']))
+
     # Merge the 'ideal' and 'test' DataFrames based on the common 'x' values
     df_result = pd.merge(sorted_test_df, df_ideal, on='x')
     # Drop the unnecessary columns except x, y and y24 as it's no longer needed
@@ -23,10 +17,8 @@ def define_deviation():
     result_df['deviation'] = result_df['y'] - result_df['y24']
     print(result_df)
 
-def define_sum_deviation_for_function(function_y_id):
+def define_sum_deviation_for_function(function_y_id, df_test, df_ideal):
     sorted_test_df = df_test.sort_values(by='x')
-    #export x and y24 from df_ideal
-    df_ideal_by_id = pd.DataFrame(zip(df_ideal['x'], df_ideal[function_y_id]))
 
     #Merge the 'ideal' and 'test' DataFrames based on the common 'x' values
     df_result = pd.merge(sorted_test_df, df_ideal, on='x')

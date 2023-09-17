@@ -5,12 +5,6 @@ def create_tables_in_sqlight():
     conn = sqlite3.connect('my_data.db')
     c = conn.cursor()
 
-    # Clean up
-    # c.execute('''DROP TABLE test''')
-    # c.execute('''DROP TABLE ideal''')
-    # c.execute('''DROP TABLE train''')
-    # c.execute('''DROP TABLE result''')
-
     # create tables
     c.execute('''CREATE TABLE test (x float, y float)''')
     c.execute('''CREATE TABLE train (x float, y1 float, y2 float, y3 float, y4 float)''')
@@ -18,9 +12,53 @@ def create_tables_in_sqlight():
     c.execute('''CREATE TABLE result (x float, y float, ideal_func float, deviation float)''')
 
     # load the data into a Pandas DataFrame
-    test = pd.read_csv('data/test.csv')
-    train = pd.read_csv('data/train.csv')
-    ideal = pd.read_csv('data/ideal.csv')
+    try:
+        # Attempt to read the CSV file
+        test = pd.read_csv('data/test.csv')
+    except FileNotFoundError:
+        # Handle the case where the file is not found
+        print("File not found. Please check the file path.")
+    except pd.errors.EmptyDataError:
+        # Handle the case where the file is empty
+        print("The file is empty.")
+    except pd.errors.ParserError:
+        # Handle the case where there is an issue parsing the CSV data
+        print("There was an issue parsing the CSV file.")
+    except Exception as e:
+        # Handle any other unexpected exceptions
+        print(f"An error occurred: {e}")
+
+    try:
+        # Attempt to read the CSV file
+        train = pd.read_csv('data/train.csv')
+    except FileNotFoundError:
+        # Handle the case where the file is not found
+        print("File not found. Please check the file path.")
+    except pd.errors.EmptyDataError:
+        # Handle the case where the file is empty
+        print("The file is empty.")
+    except pd.errors.ParserError:
+        # Handle the case where there is an issue parsing the CSV data
+        print("There was an issue parsing the CSV file.")
+    except Exception as e:
+        # Handle any other unexpected exceptions
+        print(f"An error occurred: {e}")
+
+    try:
+        # Attempt to read the CSV file
+        ideal = pd.read_csv('data/ideal.csv')
+    except FileNotFoundError:
+        # Handle the case where the file is not found
+        print("File not found. Please check the file path.")
+    except pd.errors.EmptyDataError:
+        # Handle the case where the file is empty
+        print("The file is empty.")
+    except pd.errors.ParserError:
+        # Handle the case where there is an issue parsing the CSV data
+        print("There was an issue parsing the CSV file.")
+    except Exception as e:
+        # Handle any other unexpected exceptions
+        print(f"An error occurred: {e}")
 
     # write the data to a sqlite table
     test.to_sql('test', conn, if_exists='append', index = False)
