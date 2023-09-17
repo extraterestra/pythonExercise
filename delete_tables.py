@@ -10,4 +10,6 @@ def delete_tables():
     c.execute('''DROP TABLE train''')
     c.execute('''DROP TABLE result''')
 
-delete_tables()
+    conn.close()
+
+# delete_tables()

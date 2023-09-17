@@ -1,11 +1,6 @@
-import read_data as read
 import matplotlib.pyplot as plt
 
-df_train = read.read_data_to_train_df()
-df_test = read.read_data_to_test_df()
-df_ideal = read.read_data_to_ideal_df()
-
-def show_graph():
+def show_graph(df_train, df_test, df_ideal):
     # Set up the figure and axes
     fig, axs = plt.subplots(2, 3, figsize=(18, 12))
     fig.suptitle('Functions Visualization', fontsize=16)
