@@ -1,6 +1,10 @@
 import sqlite3
 
-def delete_tables():
+
+def delete_tables() -> None:
+    """
+    Function delete 4 tables: test, ideal, train, result
+    """
     conn = sqlite3.connect('my_data.db')
     c = conn.cursor()
 

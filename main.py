@@ -1,9 +1,10 @@
 import read_data as read
-# import create_sql_light_db as create_db
+import create_sql_light_db as create_db
 # import delete_tables as delete
 import compare_functions as compare
 import extract_deviation as deviation
 import display_graph_datasets as graphs
+
 # import test_table_existence as test_table
 # import unittest as test
 
@@ -35,13 +36,10 @@ result_df = deviation.define_deviation(df_ideal, df_test, best_fit_ideal)
 print(result_df)
 
 # Write result data in to table with best fit function and deviation
-# create_db.write_data_in_db_table(result_df, 'result', best_fit_ideal)
+create_db.write_data_in_db_table(result_df, 'result', best_fit_ideal)
 
-#Display graphs
+# Display graphs
 graphs.show_graph(df_train, df_test, df_ideal)
 
 # Cleanup database
 # delete.delete_tables()
-
-
-

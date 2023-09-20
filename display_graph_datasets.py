@@ -1,6 +1,13 @@
 import matplotlib.pyplot as plt
 
-def show_graph(df_train, df_test, df_ideal):
+
+def show_graph(df_train, df_test, df_ideal) -> None:
+    """
+    Function to draw graphycs of 4 chosen ideal functions and each matched with one of the 4 test functions:
+    :param df_train: Dataframe with data of 4 train functions
+    :param df_test: Dataframe with data of 1 test function
+    :param df_ideal: Dataframe with data of 50 ideal functions
+    """
     # Set up the figure and axes
     fig, axs = plt.subplots(2, 3, figsize=(18, 12))
     fig.suptitle('Functions Visualization', fontsize=16)

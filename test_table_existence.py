@@ -18,9 +18,30 @@ def table_exists(table_name):
 
 
 class TestTableExistence(unittest.TestCase):
-    def test_table_exists(self):
-        # Replace 'your_table_name' with the actual table name you want to check
+    def test_result_table_exists(self):
+        # Replace 'table_name_to_check' with the actual table name you want to check
         table_name_to_check = 'result'
+
+        # Check if the table exists
+        self.assertTrue(table_exists(table_name_to_check))
+
+    def test_test_table_exists(self):
+        # Replace 'table_name_to_check' with the actual table name you want to check
+        table_name_to_check = 'test'
+
+        # Check if the table exists
+        self.assertTrue(table_exists(table_name_to_check))
+
+    def test_ideal_table_exists(self):
+        # Replace 'table_name_to_check' with the actual table name you want to check
+        table_name_to_check = 'ideal'
+
+        # Check if the table exists
+        self.assertTrue(table_exists(table_name_to_check))
+
+    def test_train_table_exists(self):
+        # Replace 'table_name_to_check' with the actual table name you want to check
+        table_name_to_check = 'train'
 
         # Check if the table exists
         self.assertTrue(table_exists(table_name_to_check))
