@@ -32,7 +32,7 @@ def define_optimal_from_ideal_to_train(df_train: pd.DataFrame, df_ideal: pd.Data
         test_function = Function_test(num_test_function)
 
         # Define the new row to be added
-        new_row = {'y_train': test_function.num_y_test, 'y_optimal': ideal_function.num_y_ideal,
+        new_row = {'y_train': test_function.function_num, 'y_optimal': ideal_function.function_num,
                    'deviation': ideal_function.deviation_to_test}
 
         # Use the loc method to add the new row to the DataFrame

@@ -36,7 +36,7 @@ result_df = deviation.define_deviation(df_ideal, df_test, best_fit_ideal)
 print(result_df)
 
 # Write result data in to table with best fit function and deviation
-create_db.write_data_in_db_table(result_df, 'result', best_fit_ideal)
+# create_db.write_data_in_db_table(result_df, 'result', best_fit_ideal)
 
 # Display graphs
 graphs.show_graph(df_train, df_test, df_ideal)

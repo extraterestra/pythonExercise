@@ -2,10 +2,11 @@ from function import Function
 
 
 class Function_ideal(Function):
-    def __init__(self, num_y_ideal, deviation_to_test):
-        self.num_y_ideal = num_y_ideal
+    """Class Function_ideal which inherits from class Function"""
+    def __init__(self, function_num, deviation_to_test):
+        super().__init__(function_num)
+        self.function_num = function_num
         self.deviation_to_test = deviation_to_test
-        Function.__init__(self, 0)
 
     def who_am_i(self):
-        print('I AM IDEAL FUNCTION with ')
+        print(f'I AM TEST FUNCTION WITH {self.function_num}')
