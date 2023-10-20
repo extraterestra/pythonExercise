@@ -23,7 +23,7 @@ df_test = read.read_data_to_test_df()
 
 # Define 4 best fit ideal function similar to 4 train functions
 df_4_best_fit_ideal = compare.define_optimal_from_ideal_to_train(df_train, df_ideal, df_test)
-print('Print 4 best fit ideal functions with deviation:')
+print('Print 4 best fit ideal functions similar to 4 train functions with deviation:')
 print(df_4_best_fit_ideal)
 
 # Define number of one ideal best fit function similar to test function
@@ -31,7 +31,7 @@ best_fit_ideal = compare.get_best_function(df_4_best_fit_ideal)
 print(f"Number of ideal function best fit to test function: {best_fit_ideal}")
 
 # Define dediation between one ideal best fit function similar and test function
-print(f"Display deviation for best fit function {best_fit_ideal}:")
+print(f"Display deviation for best fit ideal function {best_fit_ideal}:")
 result_df = deviation.define_deviation(df_ideal, df_test, best_fit_ideal)
 print(result_df)
 

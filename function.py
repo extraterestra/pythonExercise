@@ -1,7 +1,14 @@
+from abc import abstractmethod
+
 class Function:
-    """Abstract class Function"""
+    """Parent class Function"""
     def __init__(self, function_num):
         self.function_num = function_num
 
-    def who_am_i(self):
-        print(f'I AM PARENT FUNCTION with {self.function_num}')
+    @abstractmethod
+    def get_number(self):
+        pass
+
+    @abstractmethod
+    def print_function_number(self):
+        pass
